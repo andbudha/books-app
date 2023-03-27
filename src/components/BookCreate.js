@@ -1,9 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export const BookCreate = () => {
+export const BookCreate = ({onSubmit}) => {
+
+    //input value catching state
+    const[title, setTitle]=useState('');
+
+    //input value catching func
+    const onChangeHandler = (event) => {
+        setTitle(event.target.value);
+    }
+    
+    
+    //input value submitting func
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+        onSubmit(title);
+        setTitle('');
+    }
+
     return (
         <div>
-            Book-Create
+            <form onSubmit={onSubmitHandler}>
+                <label>Title</label>
+                <input value={title} onChange={onChangeHandler}/>
+                <button>add a new book</button>
+            </form>
         </div>
     );
 };

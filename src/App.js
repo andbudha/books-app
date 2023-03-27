@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {BookCreate} from "./components/BookCreate";
 
 const App = () => {
+
+    //state for books
+    const[books, setBooks]=useState([]);
+
+    //book creating func
+    const createBook = (title) => {
+        console.log('A new book has been added: ', title)
+    }
+
     return (
         <div>
-            Hi there!
+            <BookCreate onSubmit={createBook}/>
         </div>
     );
 };
