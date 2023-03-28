@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {BookCreate} from "./components/BookCreate";
+import {BookList} from "./components/BookList";
 
 const App = () => {
 
@@ -14,7 +15,8 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div className={'app'}>
+            <BookList books={books}/>
             <BookCreate onSubmit={createBook}/>
         </div>
     );

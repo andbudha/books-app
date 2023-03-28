@@ -1,9 +1,14 @@
 import React from 'react';
+import {BookShow} from "./BookShow";
 
-export const BookList = () => {
+export const BookList = ({books}) => {
+
+    const renderedBooks = books.map(book=>{
+        return <BookShow key={book.id} book={book}/>
+    })
     return (
-        <div>
-            Book-List
+        <div className={'book-list'}>
+            {renderedBooks}
         </div>
     );
 };
