@@ -19,11 +19,12 @@ export const BookCreate = ({onSubmit}) => {
     }
 
     return (
-        <div>
+        <div className={'book-create'}>
+            <h3>Add a Book</h3>
             <form onSubmit={onSubmitHandler}>
                 <label>Title</label>
-                <input value={title} onChange={onChangeHandler}/>
-                <button>add a new book</button>
+                <input className={'input'} value={title} onChange={onChangeHandler}/>
+                <button className={'button'}>add a new book</button>
             </form>
         </div>
     );
