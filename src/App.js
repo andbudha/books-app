@@ -7,16 +7,21 @@ const App = () => {
     //state for books
     const[books, setBooks]=useState([]);
 
-    console.log(books);
     //book creating func
     const createBook = (title) => {
         const updatedBooks = [...books, {id: Math.round(Math.random() * 9999), title}];
+        setBooks(updatedBooks);
+    };
+
+    //book deleting func
+    const deleteBookById = (id) => {
+        const updatedBooks = books.filter(book=>book.id !== id);
         setBooks(updatedBooks);
     }
 
     return (
         <div className={'app'}>
-            <BookList books={books}/>
+            <BookList books={books} onDelete={deleteBookById}/>
             <BookCreate onSubmit={createBook}/>
         </div>
     );
