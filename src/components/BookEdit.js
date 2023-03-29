@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export const BookEdit = ({book, editTitle, showEdit, setShowEdit}) => {
+export const BookEdit = ({book, submitHandler}) => {
     //input value catching state
     const[inputValue, setInputValue]=useState(book.title);
 
@@ -13,13 +13,12 @@ export const BookEdit = ({book, editTitle, showEdit, setShowEdit}) => {
     const inputValueSubmit = (event) => {
       event.preventDefault();
         console.log(inputValue);
-        editTitle(book.id, inputValue);
+        submitHandler(book.id, inputValue);
     }
 
     //new title saving func
     const onClickHandler = () => {
-        setShowEdit(!showEdit);
-        editTitle(book.id, inputValue);
+        submitHandler(book.id, inputValue);
     }
 
     return (

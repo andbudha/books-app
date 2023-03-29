@@ -16,12 +16,20 @@ export const BookShow = ({book, onDelete, editTitle}) => {
         setShowEdit(!showEdit);
     }
 
+    //title changing and saving func
+    const submitHandler = (bookID, newTitle) => {
+        editTitle(bookID, newTitle);
+        setShowEdit(!showEdit);
+    }
+
     //title&title-editing conditioning
     let content = <h3>{book.title}</h3>
 
     if(showEdit){
-        content = <BookEdit book={book} editTitle={editTitle} setShowEdit={setShowEdit} showEdit={showEdit}/>;
+        content = <BookEdit book={book} submitHandler={submitHandler}/>;
     }
+
+
 
     return (
         <div className={'book-show'}>
