@@ -1,0 +1,29 @@
+
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Hard Times"
+}
+
+
+###
+
+PUT http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Two Cities"
+}
+
+
+###
+
+DELETE http://localhost:3001/books/3 HTTP/1.1
+Content-Type: application/json
+
