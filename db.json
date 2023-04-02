@@ -3,6 +3,10 @@
     {
       "title": "book one",
       "id": 1
+    },
+    {
+      "title": "book two",
+      "id": 2
     }
   ]
 }
