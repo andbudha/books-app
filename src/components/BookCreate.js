@@ -1,9 +1,10 @@
-import React, {useState, useContext} from 'react';
-import {BooksContext} from "../context/books";
+import React, {useState} from 'react';
+import {useBooksContext} from "../hooks/useBooksContext";
+
 
 export const BookCreate = () => {
     //creatBook from context
-    const {createBook} = useContext(BooksContext);
+    const {createBook} = useBooksContext();
 
     //input value catching state
     const[title, setTitle]=useState('');

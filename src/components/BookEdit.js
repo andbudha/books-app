@@ -1,9 +1,10 @@
-import React, {useContext, useState} from 'react';
-import {BooksContext} from "../context/books";
+import React, {useState} from 'react';
+import {useBooksContext} from "../hooks/useBooksContext";
+
 
 export const BookEdit = ({book, submitHandler}) => {
     //editTitle func from Context
-    const {editTitle} = useContext(BooksContext);
+    const {editTitle} = useBooksContext();
 
     //input value catching state
     const[inputValue, setInputValue]=useState(book.title);
