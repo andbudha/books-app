@@ -1,14 +1,19 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {BookEdit} from "./BookEdit";
+import {BooksContext} from "../context/books";
 
-export const BookShow = ({book, onDelete, editTitle}) => {
+export const BookShow = ({book}) => {
+
 
     //title editor state
     const [showEdit, setShowEdit]=useState(false);
 
+    //deleteBookById func from Context
+    const {deleteBookById} = useContext(BooksContext);
+
     //book deleting by id func
     const onClickDeleteHandler = () => {
-        onDelete(book.id);
+        deleteBookById(book.id);
     }
 
     //title editing func
@@ -17,8 +22,7 @@ export const BookShow = ({book, onDelete, editTitle}) => {
     }
 
     //title changing and saving func
-    const submitHandler = (bookID, newTitle) => {
-        editTitle(bookID, newTitle);
+    const submitHandler = () => {
         setShowEdit(!showEdit);
     }
 

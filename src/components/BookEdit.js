@@ -1,6 +1,10 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import {BooksContext} from "../context/books";
 
 export const BookEdit = ({book, submitHandler}) => {
+    //editTitle func from Context
+    const {editTitle} = useContext(BooksContext);
+
     //input value catching state
     const[inputValue, setInputValue]=useState(book.title);
 
@@ -12,13 +16,14 @@ export const BookEdit = ({book, submitHandler}) => {
     //input value submitting func
     const inputValueSubmit = (event) => {
       event.preventDefault();
-        console.log(inputValue);
-        submitHandler(book.id, inputValue);
+        submitHandler();
+
     }
 
     //new title saving func
     const onClickHandler = () => {
-        submitHandler(book.id, inputValue);
+        submitHandler();
+        editTitle(book.id, inputValue);
     }
 
     return (
