@@ -38,7 +38,6 @@ export const Provider = ({children}) => {
             title: newTitle
         });
 
-        //setBooks(books.map(book=>book.id === bookID ? {...book, title: newTitle} : book));
         const updatedBooks = books.map(book=>{
             if(book.id === bookID){
                 return {...book, ...response.data}
@@ -48,9 +47,17 @@ export const Provider = ({children}) => {
         setBooks(updatedBooks);
     };
 
+    const valueToShare = {
+        books: books,
+        fetchBooks,
+        createBook,
+        deleteBookById,
+        editTitle
+    }
+
 
     return (
-        <BooksContext.Provider value={{}}>
+        <BooksContext.Provider value={valueToShare}>
             {children}
         </BooksContext.Provider>
         );

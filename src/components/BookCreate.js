@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {BooksContext} from "../context/books";
 
-export const BookCreate = ({onSubmit}) => {
+export const BookCreate = () => {
+    //creatBook from context
+    const {createBook} = useContext(BooksContext);
 
     //input value catching state
     const[title, setTitle]=useState('');
@@ -14,7 +17,7 @@ export const BookCreate = ({onSubmit}) => {
     //input value submitting func
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        onSubmit(title);
+        createBook(title);
         setTitle('');
     }
 
